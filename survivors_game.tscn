@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://dun1cpardk2xw"]
+
+[ext_resource type="Script" uid="uid://dsgxioo8wstff" path="res://game.gd" id="1_qclsr"]
+[ext_resource type="PackedScene" uid="uid://drd73egydckwm" path="res://Player-2-2d.tscn" id="2_qqaft"]
+[ext_resource type="PackedScene" uid="uid://c2qg1nuvfnd4q" path="res://trees/pine_tree.tscn" id="3_6h7ij"]
+[ext_resource type="PackedScene" uid="uid://d2m608gyssept" path="res://mob.tscn" id="3_edxvn"]
+[ext_resource type="Script" uid="uid://blce48qkf48pw" path="res://score.gd" id="3_pk6fm"]
+[ext_resource type="PackedScene" uid="uid://dlc6irwqeifio" path="res://trees/pine_tree_2.tscn" id="5_edxvn"]
+[ext_resource type="PackedScene" uid="uid://bqrpkxw4sc4tx" path="res://trees/pine_tree_3.tscn" id="6_pk6fm"]
+
+[sub_resource type="Curve2D" id="Curve2D_cp6e5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1055, -697, 0, 0, 0, 0, 1057, -697, 0, 0, 0, 0, 1057, 671, 0, 0, 0, 0, -1055, 663, 0, 0, 0, 0, -1055, -689)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_pk6fm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -909.5, -1860, 0, 0, 0, 0, 534.5, -1867, 0, 0, 0, 0, 571.5, 531, 0, 0, 0, 0, -909.5, 544, 0, 0, 0, 0, -2337.5, 553, 0, 0, 0, 0, -2353.5, -1889, 0, 0, 0, 0, -909.5, -1860)
+}
+point_count = 7
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t2dwb"]
+radius = 74.672615
+
+[node name="Game" type="Node2D" unique_id=327747119]
+y_sort_enabled = true
+script = ExtResource("1_qclsr")
+
+[node name="Timer" type="Timer" parent="." unique_id=173639759]
+wait_time = 0.3
+autostart = true
+
+[node name="Player2" parent="." unique_id=1529517770 instance=ExtResource("2_qqaft")]
+unique_name_in_owner = true
+
+[node name="Path2D" type="Path2D" parent="Player2" unique_id=1949369106]
+curve = SubResource("Curve2D_cp6e5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player2/Path2D" unique_id=949713007]
+unique_name_in_owner = true
+position = Vector2(-1055, -697)
+
+[node name="Score" type="Label" parent="Player2" unique_id=1503280490]
+unique_name_in_owner = true
+z_index = 4096
+z_as_relative = false
+offset_left = -892.0
+offset_top = -507.0
+offset_right = -703.0
+offset_bottom = -438.0
+theme_override_colors/font_color = Color(0.9574718, 0.94202274, 0.9999992, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Score: 0"
+script = ExtResource("3_pk6fm")
+
+[node name="TreeSpawnLine" type="Path2D" parent="Player2" unique_id=427823199]
+position = Vector2(896.5, 803)
+curve = SubResource("Curve2D_pk6fm")
+
+[node name="TreePath2d" type="PathFollow2D" parent="Player2/TreeSpawnLine" unique_id=59538754]
+unique_name_in_owner = true
+position = Vector2(-909.5, -1860)
+rotation = -0.0048476076
+
+[node name="Mob" parent="." unique_id=1758012314 instance=ExtResource("3_edxvn")]
+position = Vector2(384, 213)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1066809076]
+layer = -32
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=980385255]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45266667, 0.56, 0.28, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1878708603]
+
+[node name="PineTree" parent="." unique_id=1536469701 instance=ExtResource("3_6h7ij")]
+position = Vector2(-516, 482)
+
+[node name="PineTree2" parent="." unique_id=896816878 instance=ExtResource("3_6h7ij")]
+position = Vector2(101, -487)
+
+[node name="PineTree3" parent="." unique_id=466383871 instance=ExtResource("3_6h7ij")]
+position = Vector2(-846, 416)
+
+[node name="PineTree4" parent="." unique_id=50880364 instance=ExtResource("3_6h7ij")]
+position = Vector2(682, 254)
+
+[node name="PineTree5" parent="." unique_id=195003767 instance=ExtResource("5_edxvn")]
+position = Vector2(-804, -345)
+
+[node name="PineTree6" parent="." unique_id=450422240 instance=ExtResource("5_edxvn")]
+position = Vector2(-373, -256)
+
+[node name="PineTree7" parent="." unique_id=1061607597 instance=ExtResource("3_6h7ij")]
+position = Vector2(594, -222)
+
+[node name="PineTree8" parent="." unique_id=288358321 instance=ExtResource("6_pk6fm")]
+position = Vector2(510, 690)
+
+[node name="PineTree9" parent="." unique_id=97923681 instance=ExtResource("6_pk6fm")]
+position = Vector2(-704, 614)
+
+[node name="PineTree10" parent="." unique_id=413791878 instance=ExtResource("5_edxvn")]
+position = Vector2(423, -553)
+
+[node name="PineTree11" parent="." unique_id=501460556 instance=ExtResource("6_pk6fm")]
+position = Vector2(-570, -601)
+
+[node name="PineTree12" parent="." unique_id=862711425 instance=ExtResource("6_pk6fm")]
+position = Vector2(970, -108)
+
+[node name="PineTree13" parent="." unique_id=205899535 instance=ExtResource("5_edxvn")]
+position = Vector2(-1304, 140)
+
+[node name="PineTree14" parent="." unique_id=1855696095 instance=ExtResource("3_6h7ij")]
+position = Vector2(-222, 885)
+
+[node name="PineTree15" parent="." unique_id=1369501831 instance=ExtResource("5_edxvn")]
+position = Vector2(83, 714)
+
+[node name="GameOver" type="CanvasLayer" parent="." unique_id=880031702]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=1711581986]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6039216)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect" unique_id=970741770]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -358.0
+offset_top = -107.0
+offset_right = 358.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 124
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="GameOver/ColorRect" unique_id=1659041857]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.467
+anchor_top = 0.5
+anchor_right = 0.53300005
+anchor_bottom = 0.5
+offset_left = -0.14001465
+offset_top = 263.0
+offset_right = 0.13989258
+offset_bottom = 313.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Restart?"
+
+[node name="Area2D" type="Area2D" parent="GameOver/ColorRect/Button" unique_id=2076758283]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameOver/ColorRect/Button/Area2D" unique_id=1366316026]
+position = Vector2(61, 27)
+rotation = 1.5707964
+shape = SubResource("CircleShape2D_t2dwb")
+
+[node name="ExploreTimer" type="Timer" parent="." unique_id=205193782]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="health_depleted" from="Player2" to="." method="_on_player_2_health_depleted"]
+[connection signal="score_changed" from="Player2/Score" to="." method="_on_score_score_changed"]
+[connection signal="died" from="Mob" to="." method="_on_mob_died"]
+[connection signal="pressed" from="GameOver/ColorRect/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="ExploreTimer" to="." method="_on_explore_timer_timeout"]

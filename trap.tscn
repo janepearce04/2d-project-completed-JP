@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://drmetm1qoy1a6"]
+
+[ext_resource type="Script" uid="uid://dgpsntixry5u5" path="res://trap.gd" id="1_gix62"]
+[ext_resource type="Texture2D" uid="uid://c58pw3544sp41" path="res://trap_plate.png" id="1_kd1db"]
+[ext_resource type="Script" uid="uid://bd0681rfx13r5" path="res://trap_sprite_2d.gd" id="3_bmoth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2dwb"]
+size = Vector2(69, 68)
+
+[sub_resource type="Animation" id="Animation_kd1db"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_w2pp3"]
+resource_name = "trap_active"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 1, 1.1333333, 1.3, 1.4333333, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 4, 5, 6, 7, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gix62"]
+_data = {
+&"RESET": SubResource("Animation_kd1db"),
+&"trap_active": SubResource("Animation_w2pp3")
+}
+
+[node name="trapNode" type="Node2D" unique_id=1865693460]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=96500780]
+texture_filter = 1
+scale = Vector2(4.4352384, 4.4352384)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_gix62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=807720669]
+position = Vector2(1.0146016, 0)
+scale = Vector2(0.22546703, 0.22546703)
+shape = SubResource("RectangleShape2D_t2dwb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=956986645]
+unique_name_in_owner = true
+z_index = -2
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_kd1db")
+hframes = 4
+vframes = 8
+region_enabled = true
+region_rect = Rect2(8, 8, 120, 256)
+script = ExtResource("3_bmoth")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=147022107]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_gix62")
+autoplay = &"RESET"
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

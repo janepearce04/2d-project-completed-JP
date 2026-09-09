@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://cug7yf8osto18"]
+
+[ext_resource type="Texture2D" uid="uid://bcqxf4tfn3se1" path="res://characters/Eris Esra's Character Template 4.1/16x16/16x16 All Animations-Sheet.png" id="1_a06vx"]
+[ext_resource type="Script" uid="uid://dptfewt7mwl1e" path="res://player_2.gd" id="1_mjxxk"]
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="2_eyttc"]
+
+[sub_resource type="Animation" id="Animation_mjxxk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("16x16AllAnimationsSheet:frame_coords:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("16x16AllAnimationsSheet:frame_coords:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_6qrfi"]
+resource_name = "dash"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("16x16AllAnimationsSheet:frame_coords:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333334, 0.1, 0.4, 0.43333334, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("16x16AllAnimationsSheet:frame_coords:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_g3ar4"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("16x16AllAnimationsSheet:frame_coords:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("16x16AllAnimationsSheet:frame_coords:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_eyttc"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("16x16AllAnimationsSheet:frame_coords:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.09925683, 0.20008776, 0.2993446, 0.40017554, 0.49943238),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("16x16AllAnimationsSheet:frame_coords:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g3ar4"]
+_data = {
+&"RESET": SubResource("Animation_mjxxk"),
+&"dash": SubResource("Animation_6qrfi"),
+&"idle": SubResource("Animation_g3ar4"),
+&"run": SubResource("Animation_eyttc")
+}
+
+[node name="SpritePlayer2" type="Node2D" unique_id=797312787]
+y_sort_enabled = true
+script = ExtResource("1_mjxxk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2054722673]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_g3ar4")
+autoplay = &"idle"
+
+[node name="16x16AllAnimationsSheet" type="Sprite2D" parent="." unique_id=798621068]
+y_sort_enabled = true
+texture_filter = 1
+texture = ExtResource("1_a06vx")
+hframes = 30
+vframes = 7
+frame = 90
+
+[node name="groundShadow" type="Sprite2D" parent="." unique_id=1138124659]
+modulate = Color(0.24313726, 0.24313726, 0.24313726, 0.49019608)
+z_index = -1
+y_sort_enabled = true
+position = Vector2(0, 12)
+scale = Vector2(0.1627898, 0.10062568)
+texture = ExtResource("2_eyttc")
