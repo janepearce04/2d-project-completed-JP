@@ -1,73 +1,48 @@
 [gd_scene format=3 uid="uid://ogik4s70pgwl"]
 
-[ext_resource type="Texture2D" uid="uid://dvgfmy6vtvjji" path="res://characters/slime/slime_body.png" id="1_3j35h"]
 [ext_resource type="Script" uid="uid://c055juj57t86b" path="res://characters/slime/slime.gd" id="1_87y5x"]
 [ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="1_cq7ej"]
-[ext_resource type="Texture2D" uid="uid://c078jrp2yvc4s" path="res://characters/slime/slime_face.png" id="2_ygydt"]
-[ext_resource type="Texture2D" uid="uid://btbxea1f3vwot" path="res://characters/slime/slime_body_hurt.png" id="4_0qu0c"]
-[ext_resource type="Texture2D" uid="uid://cai2ijnbypqtr" path="res://characters/slime/slime_hurt_eyes.png" id="4_hi70h"]
+[ext_resource type="Texture2D" uid="uid://d3rwkaym2mfcx" path="res://characters/FREE_Skeleton_Asset_Pack_v1.0-Micaelle_Britto/Idle/Split/Idle_34F_Skeleton.png" id="2_qr8hk"]
+[ext_resource type="Texture2D" uid="uid://ksgl02xg7dxk" path="res://characters/FREE_Skeleton_Asset_Pack_v1.0-Micaelle_Britto/Run/Run_34F.png" id="3_w75ej"]
+[ext_resource type="Script" uid="uid://uqpr70ggmq8r" path="res://characters/slime/animation_player.gd" id="5_0qekm"]
 
 [sub_resource type="Animation" id="Animation_y4lve"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Anchor/Face:position:y")
+tracks/0/path = NodePath("SkeleBodyIdle:frame_coords:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-25.0]
+"update": 1,
+"values": [1]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Anchor/SlimeBody:scale")
+tracks/1/path = NodePath("SkeleBodyWalk:frame_coords:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"update": 1,
+"values": [0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Anchor:position:y")
+tracks/2/path = NodePath("SkeleBodyHurt:modulate:r")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Anchor/Face/SlimeFace:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_ygydt")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Anchor:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_lu163"]
@@ -76,90 +51,31 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Anchor/Face/SlimeFace:texture")
+tracks/0/path = NodePath("SkeleBodyHurt:modulate:r")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_hi70h"), ExtResource("2_ygydt")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Anchor/Face:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-25.0, -35.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Anchor:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Anchor/SlimeBody/SlimeBodyHurt:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, -2, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
+"values": [1.0, 100.0, 100.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_71vdi"]
 resource_name = "idle"
+length = 0.93333334
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Anchor/Face:position:y")
+tracks/0/path = NodePath("SkeleBodyIdle:frame_coords:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [-28.0, -24.0, -28.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Anchor/SlimeBody:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.05, 0.95), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Anchor:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336, 0.6666667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="Animation" id="Animation_l6fy2"]
@@ -169,38 +85,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Anchor:position:y")
+tracks/0/path = NodePath("SkeleBodyWalk:frame_coords:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -20.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Anchor/SlimeBody:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(0.9, 1.1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Anchor/Face:position:y")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-24.0, -28.0, -24.0]
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6cum"]
@@ -212,32 +104,50 @@ _data = {
 }
 
 [node name="Slime" type="Node2D" unique_id=972096811]
+y_sort_enabled = true
+scale = Vector2(2, 2)
 script = ExtResource("1_87y5x")
+
+[node name="SkeleBodyIdle" type="Sprite2D" parent="." unique_id=1305489894]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+position = Vector2(0, 91.99999)
+scale = Vector2(3.3558269, 3.3558266)
+texture = ExtResource("2_qr8hk")
+offset = Vector2(0, -36)
+hframes = 8
+frame = 1
+
+[node name="SkeleBodyWalk" type="Sprite2D" parent="." unique_id=639382472]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(2, 87.5)
+scale = Vector2(3.2395205, 3.2395203)
+texture = ExtResource("3_w75ej")
+offset = Vector2(0, -36)
+hframes = 6
+
+[node name="SkeleBodyHurt" type="Sprite2D" parent="." unique_id=2110247773]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+position = Vector2(0, 87)
+scale = Vector2(3.1447368, 3.1447365)
+texture = ExtResource("2_qr8hk")
+offset = Vector2(0, -36)
+hframes = 8
+frame = 1
 
 [node name="GroundShadow" type="Sprite2D" parent="." unique_id=2116837093]
 modulate = Color(0.23220001, 0.27, 0.2511, 0.654902)
 z_index = -1
 z_as_relative = false
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.5044118, 0.5044118)
 texture = ExtResource("1_cq7ej")
-
-[node name="Anchor" type="Marker2D" parent="." unique_id=1733491898]
-
-[node name="SlimeBody" type="Sprite2D" parent="Anchor" unique_id=1305489894]
-texture = ExtResource("1_3j35h")
-offset = Vector2(0, -36)
-
-[node name="SlimeBodyHurt" type="Sprite2D" parent="Anchor/SlimeBody" unique_id=1232771994]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("4_0qu0c")
-offset = Vector2(0, -36)
-
-[node name="Face" type="Marker2D" parent="Anchor" unique_id=1352662969]
-position = Vector2(0, -25)
-
-[node name="SlimeFace" type="Sprite2D" parent="Anchor/Face" unique_id=148663309]
-texture = ExtResource("2_ygydt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1998800681]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_j6cum")
+autoplay = &"idle"
+script = ExtResource("5_0qekm")

@@ -17,6 +17,8 @@ scale = Vector2(0.817308, 0.817308)
 texture = ExtResource("1_g7t2f")
 
 [node name="PineTree" type="Sprite2D" parent="." unique_id=2053190559]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(0, -182)
 scale = Vector2(3, 3)
 texture = ExtResource("2_gltu7")

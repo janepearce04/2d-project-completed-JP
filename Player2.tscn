@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bcqxf4tfn3se1" path="res://characters/Eris Esra's Character Template 4.1/16x16/16x16 All Animations-Sheet.png" id="1_a06vx"]
 [ext_resource type="Script" uid="uid://dptfewt7mwl1e" path="res://player_2.gd" id="1_mjxxk"]
 [ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="2_eyttc"]
+[ext_resource type="Script" uid="uid://bubqv1a0dqspy" path="res://animation_player.gd" id="2_g3ar4"]
 
 [sub_resource type="Animation" id="Animation_mjxxk"]
 length = 0.001
@@ -134,10 +135,12 @@ script = ExtResource("1_mjxxk")
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_g3ar4")
 autoplay = &"idle"
+script = ExtResource("2_g3ar4")
 
 [node name="16x16AllAnimationsSheet" type="Sprite2D" parent="." unique_id=798621068]
 y_sort_enabled = true
 texture_filter = 1
+position = Vector2(0, -6)
 texture = ExtResource("1_a06vx")
 hframes = 30
 vframes = 7
@@ -147,6 +150,6 @@ frame = 90
 modulate = Color(0.24313726, 0.24313726, 0.24313726, 0.49019608)
 z_index = -1
 y_sort_enabled = true
-position = Vector2(0, 12)
+position = Vector2(0, 4.9999995)
 scale = Vector2(0.1627898, 0.10062568)
 texture = ExtResource("2_eyttc")

@@ -8,3 +8,6 @@ func play_walk_animation():
 
 func play_dash_animation():
 	%AnimationPlayer.play("dash")
+
+func play_hurt_animation():
+	%AnimationPlayer.flash_hurt()

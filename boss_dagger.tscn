@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://5cdrn5vt5hvk"]
+
+[ext_resource type="Script" uid="uid://djou1g132y6vp" path="res://boss_dagger.gd" id="1_pd3lf"]
+[ext_resource type="Texture2D" uid="uid://3fnfaqe4h0cc" path="res://characters/Boss/boss dagger.png" id="2_33mth"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m2va7"]
+height = 40.0
+
+[node name="Area2D" type="Area2D" unique_id=307226162]
+script = ExtResource("1_pd3lf")
+
+[node name="BossDagger" type="Sprite2D" parent="." unique_id=725165851]
+texture_filter = 1
+position = Vector2(0, -26)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_33mth")
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=178903127]
+position = Vector2(0, -27)
+shape = SubResource("CapsuleShape2D_m2va7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1782305156]
+unique_name_in_owner = true
+position = Vector2(0, -28)

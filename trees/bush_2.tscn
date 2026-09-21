@@ -8,6 +8,8 @@ radius = 52.0
 height = 104.0
 
 [node name="PineTree" type="StaticBody2D" unique_id=195003767]
+z_index = 1
+y_sort_enabled = true
 
 [node name="GroundShadow" type="Sprite2D" parent="." unique_id=63197420]
 modulate = Color(0.17254902, 0.17254902, 0.16470589, 0.5058824)

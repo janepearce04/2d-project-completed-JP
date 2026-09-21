@@ -8,12 +8,16 @@ var health = 3
 @onready var player = get_node("/root/Game/Player2")
 
 func _ready():
+	add_to_group("mob")
 	%Slime.play_walk()
 
 func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * speed
 	move_and_slide()
+	
+	if direction.x != 0:
+		$'Slime/AnimationPlayer'.set_facing(direction.x)
 
 func take_damage():
 	%Slime.play_hurt()

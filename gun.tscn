@@ -23,8 +23,8 @@ gizmo_extents = 47.7
 [node name="Pistol" type="Sprite2D" parent="WeaponPivot" unique_id=1241120187]
 y_sort_enabled = true
 texture_filter = 1
-position = Vector2(-33, -13)
-scale = Vector2(3.3125, 3.3125)
+position = Vector2(-33, -0.99999714)
+scale = Vector2(2.5960906, 2.5960906)
 texture = ExtResource("2_dk5gl")
 offset = Vector2(16, 0)
 

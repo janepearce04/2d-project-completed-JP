@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://cwggh0ps805r8" path="res://Player-2-2d.gd" id="1_2h848"]
 [ext_resource type="PackedScene" uid="uid://cug7yf8osto18" path="res://Player2.tscn" id="2_lwr87"]
 [ext_resource type="PackedScene" uid="uid://cphcr81upg72i" path="res://gun.tscn" id="3_xoxx5"]
+[ext_resource type="Script" uid="uid://btjmxowtptafx" path="res://camera_2d.gd" id="4_lwr87"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2dwb"]
-radius = 47.010635
+radius = 51.009804
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gix62"]
-radius = 48.0
+radius = 54.0
 height = 134.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfulf"]
@@ -39,11 +40,12 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1529517770]
+z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_2h848")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=15209908]
-position = Vector2(0, 17.265)
+position = Vector2(0, -28)
 shape = SubResource("CircleShape2D_t2dwb")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1490683034]
@@ -53,7 +55,8 @@ collision_mask = 6
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=854169036]
-position = Vector2(0, 4)
+y_sort_enabled = true
+position = Vector2(0, -47)
 shape = SubResource("CapsuleShape2D_gix62")
 
 [node name="PixelSprite" parent="." unique_id=797312787 instance=ExtResource("2_lwr87")]
@@ -62,8 +65,10 @@ position = Vector2(0, -32)
 scale = Vector2(8, 8)
 
 [node name="Gun" parent="." unique_id=941152522 instance=ExtResource("3_xoxx5")]
+position = Vector2(0, -33)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1290331634]
+script = ExtResource("4_lwr87")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=749180427]
 unique_name_in_owner = true
@@ -73,13 +78,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -85.0
-offset_top = 122.0
-offset_right = 85.0
-offset_bottom = 157.0
+offset_left = -149.14285
+offset_top = 68.0
+offset_right = 147.14285
+offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_cfulf")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2vhds")
 value = 100.0
 show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1994234027]
